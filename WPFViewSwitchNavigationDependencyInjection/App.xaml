@@ -1,0 +1,35 @@
+﻿<Application x:Class="WPFViewSwitchNavigationDependencyInjection.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFViewSwitchNavigationDependencyInjection"
+             xmlns:viewModel="clr-namespace:WPFViewSwitchNavigationDependencyInjection.MVVM.ViewModel"
+             xmlns:view="clr-namespace:WPFViewSwitchNavigationDependencyInjection.MVVM.View">
+    <Application.Resources>
+        <ImageBrush x:Key="Planks1" ImageSource="pack://application:,,,/WPFViewSwitchNavigationDependencyInjection;component/Assets/Images/WoodenPlanks1.png"
+                    TileMode="Tile" Stretch="Uniform" AlignmentY="Top" Viewport="0,0,64,64" ViewportUnits="Absolute"/>
+        <ImageBrush x:Key="Planks2" ImageSource="pack://application:,,,/WPFViewSwitchNavigationDependencyInjection;component/Assets/Images/WoodenPlanks2.png"
+                    TileMode="FlipY" Stretch="Uniform" AlignmentY="Top" Viewport="0,0,48,48" ViewportUnits="Absolute"/>
+        <ImageBrush x:Key="Lines" ImageSource="pack://application:,,,/WPFViewSwitchNavigationDependencyInjection;component/Assets/Images/Lines1.png"
+                    TileMode="Tile" Stretch="Uniform" AlignmentY="Top" Viewport="0,0,64,64" ViewportUnits="Absolute"/>
+        <ImageBrush x:Key="Figures" ImageSource="pack://application:,,,/WPFViewSwitchNavigationDependencyInjection;component/Assets/Images/Figures1.png"
+                    TileMode="Tile" Stretch="Uniform" AlignmentY="Top" Viewport="0,0,64,64" ViewportUnits="Absolute"/>
+        <SolidColorBrush x:Key="BackgroundColor">#FF4C1B31</SolidColorBrush>
+        <SolidColorBrush x:Key="BorderColor">#FFC88F36</SolidColorBrush>
+        <SolidColorBrush x:Key="GridBackgroundColor">#FF4D1E1C</SolidColorBrush>
+        <SolidColorBrush x:Key="SoftWhiteColor">#FFFCF8FA</SolidColorBrush>
+        <SolidColorBrush x:Key="OverlayColor">#7F000000</SolidColorBrush>
+        <!--FontFamily x:Key="MainFont">pack://application:,,,/WPFViewSwitchNavigationDependencyInjection;component/Assets/Fonts/#ARCADECLASSIC</FontFamily-->
+        <FontFamily x:Key="MainFont">pack://application:,,,/WPFViewSwitchNavigationDependencyInjection;component/Assets/Fonts/#dpcomic</FontFamily>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:GridViewModel}">
+            <view:GridView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:SettingsViewModel}">
+            <view:SettingsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:TradeViewModel}">
+            <view:TradeView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

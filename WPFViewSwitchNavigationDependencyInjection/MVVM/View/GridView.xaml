@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="WPFViewSwitchNavigationDependencyInjection.MVVM.View.GridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFViewSwitchNavigationDependencyInjection.MVVM.View"
+             xmlns:core="clr-namespace:WPFViewSwitchNavigationDependencyInjection.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="480"
+             Background="{StaticResource BackgroundColor}"
+             >
+    
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="{StaticResource MainFont}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+            <ItemsControl 
+                ItemsSource="{Binding GridServ.GameGridCells}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ItemsControl ItemsSource="{Binding}"
+                                      VerticalAlignment="Top"
+                                      HorizontalAlignment="Left">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="1" Columns="15"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+    </Grid>
+</UserControl>

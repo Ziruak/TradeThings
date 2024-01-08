@@ -1,0 +1,136 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Fonts\ARCADECLASSIC.TTF" />
+    <None Remove="Assets\Fonts\dpcomic.ttf" />
+    <None Remove="Assets\Images\Figures1.png" />
+    <None Remove="Assets\Images\GridContents\Carriage.png" />
+    <None Remove="Assets\Images\GridContents\Castle.png" />
+    <None Remove="Assets\Images\GridContents\Castle2.png" />
+    <None Remove="Assets\Images\GridContents\DesertCity.png" />
+    <None Remove="Assets\Images\GridContents\Village.png" />
+    <None Remove="Assets\Images\Icon.ico" />
+    <None Remove="Assets\Images\Icon.png" />
+    <None Remove="Assets\Images\Lines1.png" />
+    <None Remove="Assets\Images\Player\PlayerDown0.png" />
+    <None Remove="Assets\Images\Player\PlayerDown1.png" />
+    <None Remove="Assets\Images\Player\PlayerDown2.png" />
+    <None Remove="Assets\Images\Player\PlayerDown3.png" />
+    <None Remove="Assets\Images\Player\PlayerLeft0.png" />
+    <None Remove="Assets\Images\Player\PlayerLeft1.png" />
+    <None Remove="Assets\Images\Player\PlayerLeft2.png" />
+    <None Remove="Assets\Images\Player\PlayerRight0.png" />
+    <None Remove="Assets\Images\Player\PlayerRight1.png" />
+    <None Remove="Assets\Images\Player\PlayerRight2.png" />
+    <None Remove="Assets\Images\Player\PlayerUp0.png" />
+    <None Remove="Assets\Images\Player\PlayerUp1.png" />
+    <None Remove="Assets\Images\Player\PlayerUp2.png" />
+    <None Remove="Assets\Images\Terrain\Desert1.png" />
+    <None Remove="Assets\Images\Terrain\Desert2.png" />
+    <None Remove="Assets\Images\Terrain\Desert3.png" />
+    <None Remove="Assets\Images\Terrain\FancyGrass1.png" />
+    <None Remove="Assets\Images\Terrain\FancyGrass2.png" />
+    <None Remove="Assets\Images\Terrain\FancyGrass3.png" />
+    <None Remove="Assets\Images\Terrain\FancyGrass4.png" />
+    <None Remove="Assets\Images\Terrain\FancySand1.png" />
+    <None Remove="Assets\Images\Terrain\FancyWater1.png" />
+    <None Remove="Assets\Images\Terrain\Grasslands1.png" />
+    <None Remove="Assets\Images\Terrain\Grasslands2.png" />
+    <None Remove="Assets\Images\Terrain\Grasslands3.png" />
+    <None Remove="Assets\Images\Terrain\Grasslands4.png" />
+    <None Remove="Assets\Images\Terrain\Placeholder.png" />
+    <None Remove="Assets\Images\Terrain\Water1.png" />
+    <None Remove="Assets\Images\Terrain\Water2.png" />
+    <None Remove="Assets\Images\Terrain\Water3.png" />
+    <None Remove="Assets\Images\WoodenPlanks1.png" />
+    <None Remove="Assets\Images\WoodenPlanks2.png" />
+    <None Remove="Assets\Sounds\field_theme_1.mp3" />
+    <None Remove="Assets\Sounds\field_theme_1.wav" />
+    <None Remove="Assets\Sounds\field_theme_2.mp3" />
+    <None Remove="Assets\Sounds\field_theme_2.wav" />
+    <None Remove="Assets\Sounds\Game_Over_1.mp3" />
+    <None Remove="Assets\Sounds\Game_Over_1.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Sounds\field_theme_1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\field_theme_1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\field_theme_2.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\field_theme_2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\Game_Over_1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\Game_Over_1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\dpcomic.ttf" />
+    <Resource Include="Assets\Images\Figures1.png" />
+    <Resource Include="Assets\Images\GridContents\Carriage.png" />
+    <Resource Include="Assets\Images\GridContents\Castle2.png" />
+    <Resource Include="Assets\Images\GridContents\DesertCity.png" />
+    <Resource Include="Assets\Images\GridContents\Village.png" />
+    <Resource Include="Assets\Images\Icon.ico" />
+    <Resource Include="Assets\Images\Icon.png" />
+    <Resource Include="Assets\Images\Lines1.png" />
+    <Resource Include="Assets\Images\Player\PlayerDown0.png" />
+    <Resource Include="Assets\Images\Player\PlayerDown1.png" />
+    <Resource Include="Assets\Images\Player\PlayerDown2.png" />
+    <Resource Include="Assets\Images\Player\PlayerDown3.png" />
+    <Resource Include="Assets\Images\Player\PlayerLeft0.png" />
+    <Resource Include="Assets\Images\Player\PlayerLeft1.png" />
+    <Resource Include="Assets\Images\Player\PlayerLeft2.png" />
+    <Resource Include="Assets\Images\Player\PlayerRight0.png" />
+    <Resource Include="Assets\Images\Player\PlayerRight1.png" />
+    <Resource Include="Assets\Images\Player\PlayerRight2.png" />
+    <Resource Include="Assets\Images\Player\PlayerUp0.png" />
+    <Resource Include="Assets\Images\Player\PlayerUp1.png" />
+    <Resource Include="Assets\Images\Player\PlayerUp2.png" />
+    <Resource Include="Assets\Images\Terrain\Desert1.png" />
+    <Resource Include="Assets\Images\Terrain\Desert2.png" />
+    <Resource Include="Assets\Images\Terrain\Desert3.png" />
+    <Resource Include="Assets\Images\Terrain\FancyGrass1.png" />
+    <Resource Include="Assets\Images\Terrain\FancyGrass2.png" />
+    <Resource Include="Assets\Images\Terrain\FancyGrass3.png" />
+    <Resource Include="Assets\Images\Terrain\FancyGrass4.png" />
+    <Resource Include="Assets\Images\Terrain\FancySand1.png" />
+    <Resource Include="Assets\Images\Terrain\FancyWater1.png" />
+    <Resource Include="Assets\Images\Terrain\Grasslands1.png" />
+    <Resource Include="Assets\Images\Terrain\Grasslands2.png" />
+    <Resource Include="Assets\Images\Terrain\Grasslands3.png" />
+    <Resource Include="Assets\Images\Terrain\Grasslands4.png" />
+    <Resource Include="Assets\Images\Terrain\Placeholder.png" />
+    <Resource Include="Assets\Images\Terrain\Water1.png" />
+    <Resource Include="Assets\Images\Terrain\Water2.png" />
+    <Resource Include="Assets\Images\Terrain\Water3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\ARCADECLASSIC.TTF" />
+    <Resource Include="Assets\Images\GridContents\Castle.png" />
+    <Resource Include="Assets\Images\WoodenPlanks1.png" />
+    <Resource Include="Assets\Images\WoodenPlanks2.png" />
+  </ItemGroup>
+
+</Project>
