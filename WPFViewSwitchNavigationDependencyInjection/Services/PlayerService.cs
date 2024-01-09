@@ -36,6 +36,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
 
         private Dictionary<Good, int> inventory;
 
+        //Возвращаем в виде списка товары на продажжу с уже измененными ценами
         public ObservableCollection<GoodOnSell> GainGoodsOnSell(Dictionary<GoodType,float>? mods) { 
             ObservableCollection<GoodOnSell> inv = new ObservableCollection<GoodOnSell>();
             foreach (var item in inventory) 
@@ -61,7 +62,8 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
             get => $"Money: {Gold:0.00}";
         }
 
-        public int RationsLeft {
+            //Сколько рационов осталось
+            public int RationsLeft {
             get
             {
                 int rat = 0;
@@ -69,7 +71,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
                     rat = inventory[Goods.Ration];
                 return rat;
             }
-        }
+            }       
 
         public bool Sell(Good good, int count, float totPrice)
         {

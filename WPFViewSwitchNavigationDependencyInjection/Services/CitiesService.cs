@@ -7,10 +7,14 @@ using WPFViewSwitchNavigationDependencyInjection.MVVM.Model;
 
 namespace WPFViewSwitchNavigationDependencyInjection.Services
 {
+    
     internal class CitiesService
     {
+        //по индексу координат лежит город, переносится с сетки
         public Dictionary<(int,int),ICity> cities { get; private set; }
 
+       
+        //Устанавливает свойсва города по текущим координатам
         public void SetCurrentCity(int x, int y)
         {
             if (cities.ContainsKey((x, y)))
@@ -28,6 +32,8 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
 
         public ICity? CurrentCity { get; private set; }
 
+        
+        //Пополняет товары для каждого города
         public void RefillCities()
         {
             foreach (var c in cities.Values) 
@@ -36,18 +42,20 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
             }
         }
 
+        //Для каждого города устанавливаем внешний модификатор
         public void SetOutMod(Dictionary<GoodType,float>? mod)
         {
             foreach (var c in cities.Values)
                 c.ModOut = mod;
         }
-
+        //Устанавливаем модификатор на цену всех городов
         public void SetOutRefill(Dictionary<GoodType,int>? refill)
         {
             foreach (var c in cities.Values)
                 c.RefillOut = refill;
         }
 
+        //Инициализация городов
         public void InitCities(List<List<GameGridCell>> worldMap)
         {
             for (int y = 0; y < worldMap.Count; y++) 

@@ -10,10 +10,10 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
     {
         Any,
         Food,
-        Weapon,
+        Weapon, //Оружие
         Armor, //Доспехи
-        Wooden,
-        Leather,
+        Wooden,//Деревянный
+        Leather,//Кожа
         Metal,
         Animal,
         Magical,
@@ -29,6 +29,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
         public readonly float baseCost;
         public readonly List<GoodType> tags;
         
+        //Неопределенный товар, не исп
         public Good()
         {
             baseCost = 1f;
@@ -36,6 +37,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
             tags = new List<GoodType> { GoodType.Any };
         }
 
+       
         public Good(string Name, float baseCost, List<GoodType>? tags)
         {
             this.Name = Name;
