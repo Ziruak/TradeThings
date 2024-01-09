@@ -15,13 +15,11 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
         public int Count { get; set; }
         public float ActualPrice { get; set; }
         public string ActualPriceStr { get => $"For {ActualPrice:0.00}"; }
-        public int idx { get; set; }
-        public GoodOnSell(Good good, int count = 0, float actualPrice = 0, int idx = 0)
+        public GoodOnSell(Good good, int count = 0, float actualPrice = 0)
         {
             Count = count;
             GooD = good;
             ActualPrice = actualPrice;
-            this.idx = idx;
         }
     }
 

@@ -44,7 +44,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
 
         public GridService()
         {
-            _day = 1;
+            Day = 1;
             Rows = GameParameters.gridRows;
             Cols = GameParameters.gridCols;
             WorldRows = GameParameters.worldRows;
@@ -170,7 +170,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.Services
 
         public void Restart()
         {
-            Day = 0;
+            Day = 1;
 
             Left = 0;
             Right = GameParameters.gridCols - 1;

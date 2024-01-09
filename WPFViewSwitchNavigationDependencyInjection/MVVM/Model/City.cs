@@ -11,11 +11,14 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
     interface ICity
     {
         string Name { get; }
+        //Модификатор цен для города и для игрока
         public Dictionary<GoodType, float> ModCity { get; }
         public Dictionary<GoodType, float> ModPlayer { get; }
 
+        //Получить список на продажу
         public ObservableCollection<GoodOnSell> GoodsOnSell { get; }
 
+        //Модификатор на цены и шансы пополнения товара
         public Dictionary<GoodType, float>? ModOut { get; set; }
         public Dictionary<GoodType, int>? RefillOut { get; set; }
 
@@ -62,6 +65,8 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
             get
             {
                 var ret = new Dictionary<GoodType, float>(_modifierPlayer);
+               
+                //Проверка для событий
                 if (ModOut != null)
                 {
                     foreach (var kvp in ModOut)
@@ -76,6 +81,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
             }
         }
 
+        //Формируем список товар, количество, продаваемых в городе
         public ObservableCollection<GoodOnSell> GoodsOnSell
         {
             get
@@ -94,11 +100,13 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
 
         public StandartCity()
         {
+            //Город продает дороже - коэффициент 1,1 а игрок покупает по 1
             _name = Namegen.Generate();
             _modifierCity = new Dictionary<GoodType, float> { {GoodType.Any, 1.1f } };
-            _modifierPlayer = new Dictionary<GoodType, float> { { GoodType.Any, 0.95f } };
+            _modifierPlayer = new Dictionary<GoodType, float> { { GoodType.Any, 1f } };
             _refillChanceType = new Dictionary<GoodType, int>
             {
+                //Изменение максимального шанса (количества появления), основано на типах
                 { GoodType.Food, 650},
                 { GoodType.Magical, -10 },
                 { GoodType.Metal, 100 },
@@ -112,6 +120,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
                 { GoodType.Trinkets, 40 },
                 { GoodType.Leather, 30 }
             };
+            //Изменение основанное на ценах
             _refillChanceCost = new Dictionary<float, int>
             {
                 {5f,  200},
@@ -126,6 +135,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
 
         public void RefillGoods()
         {
+            //Стираем прошлые товары
             _goods.Clear();
             foreach (var item in Goods.AllGoods) 
             {
@@ -133,6 +143,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
                 int count;
                 foreach (GoodType goodType in item.tags)
                 {
+                    //1ое смотрим по городу, 2ое смотрим по событиям
                     if (_refillChanceType.ContainsKey(goodType))
                         maxchance += _refillChanceType[goodType];
                     if (RefillOut != null && RefillOut.ContainsKey(goodType))
@@ -159,6 +170,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
 
         public bool Sell(GoodOnSell goodOnSell)
         {
+            //Продаем(игрок покупает) только если в городе этот товар есть
             if (!_goods.ContainsKey(goodOnSell.GooD))
                 return false;
             if (_goods[goodOnSell.GooD] < goodOnSell.Count)
@@ -189,7 +201,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
                 {GoodType.Animal, 1.6f }
             };
             _modifierPlayer = new Dictionary<GoodType, float> { 
-                { GoodType.Any, 0.95f }, 
+                { GoodType.Any, 1f }, 
                 { GoodType.Food, 1.5f }, 
                 { GoodType.Valuables, 0.8f },
                 { GoodType.Animal, 1.6f }
@@ -206,13 +218,13 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
                 { GoodType.Animal, -50 },
                 { GoodType.Wooden, -50 },
                 { GoodType.Armor, -50 },
-                { GoodType.Trinkets, 40 },
+                { GoodType.Trinkets, 70 },
                 { GoodType.Leather, 10 }
             };
             _refillChanceCost = new Dictionary<float, int>
             {
-                {10f,  100},
-                {100f, -10},
+                {10f,  50},
+                {100f, 100},
                 {500f, -40},
                 {1000f, -125},
                 {float.MaxValue, -300 }
@@ -233,7 +245,7 @@ namespace WPFViewSwitchNavigationDependencyInjection.MVVM.Model
                 {GoodType.Armor, 0.85f }
             };
             _modifierPlayer = new Dictionary<GoodType, float> {
-                { GoodType.Any, 0.95f },
+                { GoodType.Any, 1f },
                 {GoodType.Food, 1.2f },
                 {GoodType.Weapon, 0.8f },
                 {GoodType.Armor, 0.85f }
